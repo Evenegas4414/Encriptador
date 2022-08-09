@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encriptador</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="/assets/js/script.js"></script>
+</head>
+
+<body>
+
+
+  <img src="assets/img/Logo.svg" alt="Alura" height="48" width="auto" />
+
+
+  <div class="flex-container">
+    <div class="flex-item-left">
+      <textarea id="texto-ingresado" name="texto-ingresado" rows="10" placeholder="Ingrese el texto aquí"></textarea>
+      <p class="warning">Solo letras minúsculas y sin acentos</p>
+      <button type="button" id="boton-encriptar" onclick="encriptar()">Encriptar</button>
+      <button type="button" id="boton-desencriptar" class="boton-desencriptar" onclick="desincriptar()">Desencriptar</button>
+    </div>
+    <div class="flex-item-right cuadro-blanco">
+      <p id="texto-mostrado" class="mostrar"></p>
+      <div id="texto-imagen">
+        <img id="img" class="img" src="assets/img/Muñeco.svg" alt="Alura" height="304px" width="auto" />
+        <p id="texto-primario">Ningún mensaje fue encontrado</p>
+        <p id="texto-secundario">Ingresa el texto que desees encriptar o desencriptar.</p>
+      </div>
+      <button type="button" id="boton-copiar" class="copiar" onclick="copiar()">Copiar</button>
+    </div>
+  </div>
+
+
+
+
+  <footer>
+    <p class="footer">&copy Exequiel Venegas - 2022</p>
+  </footer>
+
+</body>
+
+</html>
