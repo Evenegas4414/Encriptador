@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png">
+<img src="https://trello.com/1/cards/62261d46bd86ed19bd880a9c/attachments/62261db8f0ff343d54c67710/previews/62261db9f0ff343d54c67762/download/1.png">
   <h3 align="center">Encriptador</h3>
   <p align="center">
     Repositorio para el primer Spring de ONE.
