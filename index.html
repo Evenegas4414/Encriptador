@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -15,34 +15,48 @@
 
 <body>
 
+  <div id="page-container">
+    <div id="content-wrap">
 
-  <img src="assets/img/Logo.svg" alt="Alura" height="48" width="auto" />
-
-
-  <div class="flex-container">
-    <div class="flex-item-left">
-      <textarea id="texto-ingresado" name="texto-ingresado" rows="10" placeholder="Ingrese el texto aquí"></textarea>
-      <p class="warning">Solo letras minúsculas y sin acentos</p>
-      <button type="button" id="boton-encriptar" onclick="encriptar()">Encriptar</button>
-      <button type="button" id="boton-desencriptar" class="boton-desencriptar" onclick="desincriptar()">Desencriptar</button>
-    </div>
-    <div class="flex-item-right cuadro-blanco">
-      <p id="texto-mostrado" class="mostrar"></p>
-      <div id="texto-imagen">
-        <img id="img" class="img" src="assets/img/Muñeco.svg" alt="Alura" height="304px" width="auto" />
-        <p id="texto-primario">Ningún mensaje fue encontrado</p>
-        <p id="texto-secundario">Ingresa el texto que desees encriptar o desencriptar.</p>
+      <div class="header">
+        <img src="assets/img/Logo.svg" height="48px" alt="Logo alura">
       </div>
-      <button type="button" id="boton-copiar" class="copiar" onclick="copiar()">Copiar</button>
+
+      <div id="full-height" class="row">
+
+        <div id="input" class="col-9 col-s-12">
+          <textarea id="textarea-input" rows="10" placeholder="Ingrese el texto aquí" required
+            onkeypress="return revisar(event)" oninput="this.value=this.value.toLowerCase();"></textarea>
+          <div class="botones">
+            <p>Solo letras minúsculas y sin acentos</p>
+            <button id="boton-encriptar" onclick="encriptar()">Encriptar</button>
+            <button id="boton-desencriptar" onclick="desencriptar()">Desencriptar</button>
+          </div>
+        </div>
+
+        <div id="output" class="col-3 col-s-12">
+          <div class="aside">
+            <textarea id="textarea-output" rows="10" disabled></textarea>
+            <img id="imagen" src="assets/img/Muñeco.svg" alt="persona">
+            <div id="textos">
+              <br>
+              <p id="texto1">Ningun mensaje fue encontrado</p>
+              <br>
+              <p id="texto2">Ingresa el texto que deseas encriptar o desencriptar.</p>
+              <br>
+            </div>
+            <button id="boton-copiar" onclick="copiar()">Copiar</button>
+          </div>
+        </div>
+
+      </div>
+
+
     </div>
+    <footer id="footer" class="footer">
+      <p>&copy Exequiel Venegas</p>
+    </footer>
   </div>
-
-
-
-
-  <footer>
-    <p class="footer">&copy Exequiel Venegas - 2022</p>
-  </footer>
 
 </body>
 

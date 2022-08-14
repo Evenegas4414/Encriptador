@@ -1,121 +1,43 @@
-let codigoA = "ai";
-let codigoE = "enter";
-let codigoI = "imes";
-let codigoO = "ober";
-let codigoU = "ufat";
-
-function encriptar() {
-
-    let texto = document.getElementById("texto-ingresado").value;
-    var textoEncriptado = "";
-
-    for (var i = 0; i < texto.length; i++) {
-        switch (texto[i]) {
-            case "a":
-                textoEncriptado += codigoA;
-                break;
-            case "e":
-                textoEncriptado += codigoE;
-                break;
-            case "i":
-                textoEncriptado += codigoI;
-                break;
-            case "o":
-                textoEncriptado += codigoO;
-                break;
-            case "u":
-                textoEncriptado += codigoU;
-                break;
-            default:
-                textoEncriptado += texto[i];
-        }
+function revisar(evento) {
+    teclaPresionada = (document.all) ? evento.keyCode : evento.which;
+    if (teclaPresionada == 32 || teclaPresionada == 8) {
+                return true;
     }
-
-    if (textoEncriptado.length != 0) {
-
-        document.getElementById("texto-imagen").style.display = "none";
-
-        document.getElementById("texto-mostrado").innerHTML = textoEncriptado;
-        document.getElementById("texto-mostrado").style.display = "block";
-        document.getElementById("boton-copiar").style.display = "block";
-        
-    }
-
+    patronAdmitido = /[A-Za-z0-9]/;
+    teclaAdmitida = String.fromCharCode(teclaPresionada);
+    return patronAdmitido.test(teclaAdmitida);
 }
 
-function desincriptar() {
-
-    let texto = document.getElementById("texto-ingresado").value;
-    let textoDesincriptado = "";
-
-    for (var i = 0; i < texto.length; i++) {
-        switch (texto[i]) {
-            case "a":
-                if (texto.slice(i, i + codigoA.length) === codigoA) {
-                    textoDesincriptado += "a";
-                    i += codigoA.length - 1;
-                } else {
-                    textoDesincriptado += texto[i];
-                }
-                break;
-            case "e":
-                if (texto.slice(i, i + codigoE.length) === codigoE) {
-                    textoDesincriptado += "e";
-                    i += codigoE.length - 1;
-                } else {
-                    textoDesincriptado += texto[i];
-                }
-                break;
-            case "i":
-                if (texto.slice(i, i + codigoI.length) === codigoI) {
-                    textoDesincriptado += "i";
-                    i += codigoI.length - 1;
-                } else {
-                    textoDesincriptado += texto[i];
-                }
-                break;
-            case "o":
-                if (texto.slice(i, i + codigoO.length) === codigoO) {
-                    textoDesincriptado += "o";
-                    i += codigoO.length - 1;
-                } else {
-                    textoDesincriptado += texto[i];
-                }
-                break;
-            case "u":
-                if (texto.slice(i, i + codigoU.length) === codigoU) {
-                    textoDesincriptado += "u";
-                    i += codigoU.length - 1;
-                } else {
-                    textoDesincriptado += texto[i];
-                }
-                break;
-            default:
-                textoDesincriptado += texto[i];
-        }
-    }
-
-    if (textoDesincriptado.length != 0) {
-
-        document.getElementById("texto-imagen").style.display = "none";
-
-        document.getElementById("texto-mostrado").innerHTML = textoDesincriptado;
-        document.getElementById("texto-mostrado").style.display = "block";
-        document.getElementById("boton-copiar").style.display = "block";
-
-    }
-
-
+function encriptar(){
+    var mensajeIngresado = document.getElementById("textarea-input").value;
+    var texto = mensajeIngresado.replace(/e/igm, "enter");
+    var texto = texto.replace(/i/igm, "imes");
+    var texto = texto.replace(/a/igm, "ai");
+    var texto = texto.replace(/o/igm, "ober");
+    var texto = texto.replace(/u/igm, "ufat"); 
+    document.getElementById("textarea-output").innerHTML = texto;
+    document.getElementById("imagen").style.display = "none";
+    document.getElementById("textos").style.display="none";
+    document.getElementById("textarea-output").style.display = "block";
+    document.getElementById("boton-copiar").style.display = "inherit";
 }
 
-function copiar() {
+function desencriptar(){
+    var mensajeIngresado = document.getElementById("textarea-input").value;
+    var texto = mensajeIngresado.replace(/imes/igm, "i");
+    var texto = texto.replace(/ai/igm, "a");
+    var texto = texto.replace(/enter/igm, "e");
+    var texto = texto.replace(/ober/igm, "o");
+    var texto = texto.replace(/ufat/igm, "u");
+    document.getElementById("textarea-output").innerHTML = texto;
+    document.getElementById("imagen").style.display = "none";
+    document.getElementById("textos").style.display="none";
+    document.getElementById("textarea-output").style.display = "block";
+    document.getElementById("boton-copiar").style.display = "inherit";
+}
 
-    let text = document.getElementById("texto-mostrado").innerText;
-    let elem = document.createElement("textarea");
-    document.body.appendChild(elem);
-    elem.value = text;
-    elem.select();
-    document.execCommand("copy");
-    document.body.removeChild(elem);
-
+function copiar(){
+    var texto = document.getElementById("textarea-output");
+    texto.select();
+    navigator.clipboard.writeText(texto.value);
 }
